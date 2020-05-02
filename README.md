@@ -46,6 +46,24 @@ Exemplo de funcionamento:
 <img src = "https://user-images.githubusercontent.com/20601076/80893035-3aab0380-8ca5-11ea-9df9-5389428feef0.gif" width = "250" height = "500">
 </p>
 
+Para a câmera funcionar corretamente no Android algumas coisas devem ser adicionadas:
+
+- `android/app/src/main/AndroidManifest.xml` devesse adicionar a seguinte permissão `<uses-permission android:name="android.permission.CAMERA" />`
+
+- Em `android/app/build.gradle` devesse adicionar o seguinte ->
+
+android {
+
+    ...
+    defaultConfig {
+
+          ...
+          missingDimensionStrategy 'react-native-camera', 'general' // <--- insert this line
+
+    }
+
+}
+
 Link da documentação do **react-native-barcode-mask**:
 
 [Documentação Mask](https://www.npmjs.com/package/react-native-barcode-mask/v/1.2.1)
@@ -53,3 +71,7 @@ Link da documentação do **react-native-barcode-mask**:
 Link da discussão sobre o warning do useNativeDriver:
 
 [Discussão sobre o Warning useNativeDriver](https://github.com/shahnawaz/react-native-barcode-mask/issues/21)
+
+Referência da adição de dependências:
+
+[Documentação da Camera](https://github.com/react-native-community/react-native-camera)
